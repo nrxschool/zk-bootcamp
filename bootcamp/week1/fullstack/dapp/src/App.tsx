@@ -1,12 +1,12 @@
 import { ConnectWalletButton } from "./components/ConnectWalletButton";
+import { Dashboard } from "./components/Dashboard";
 import { useContract } from "./hooks/useContract";
 import { useWallet } from "./hooks/useWallet";
 import { WalletClient } from "viem";
 import React from "react";
-import { Dashboard } from "./components/Dashboard";
 
 function App() {
-  const { account, client, error, connectWallet } = useWallet();
+  const { account, client, connectWallet } = useWallet();
   const { name, symbol, decimals, contractClient } = useContract(client as WalletClient, account);
 
   return (
@@ -21,11 +21,7 @@ function App() {
           decimals={decimals}
         />
       ) : (
-        <ConnectWalletButton
-          account={account}
-          error={error}
-          connectWallet={connectWallet}
-        />
+        <ConnectWalletButton connectWallet={connectWallet} />
       )}
     </div>
   );

@@ -1,11 +1,10 @@
 import { Address, createWalletClient, custom, WalletClient } from "viem";
-import { anvil } from "viem/chains";
 import { useState, useEffect } from "react";
+import { anvil } from "viem/chains";
 
 export function useWallet() {
   const [account, setAccount] = useState<Address>("0x0");
   const [client, setClient] = useState<WalletClient>();
-  const [error, setError] = useState<string | null>(null);
 
   const connectWallet = async () => {
     try {
@@ -21,10 +20,8 @@ export function useWallet() {
       const [address] = await walletClient.requestAddresses();
       setClient(walletClient);
       setAccount(address);
-      setError(null);
     } catch (err) {
-      setError("Falha ao conectar com MetaMask");
-      console.error(err);
+      console.error("Falha ao conectar com MetaMask: ", err);
     }
   };
 
@@ -44,7 +41,6 @@ export function useWallet() {
         if (accounts.length > 0) {
           setClient(walletClient);
           setAccount(accounts[0]);
-          setError(null);
         }
       } catch (err) {
         console.error("Erro ao verificar conexão inicial:", err);
@@ -54,5 +50,5 @@ export function useWallet() {
     checkConnection();
   }, []);
 
-  return { account, client, error, connectWallet };
+  return { account, client, connectWallet };
 }
