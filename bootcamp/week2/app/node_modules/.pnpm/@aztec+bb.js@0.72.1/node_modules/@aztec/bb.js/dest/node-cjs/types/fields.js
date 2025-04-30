@@ -1,0 +1,102 @@
+"use strict";
+var _a, _b;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Fq = exports.Fr = void 0;
+const index_js_1 = require("../random/index.js");
+const index_js_2 = require("../bigint-array/index.js");
+const index_js_3 = require("../serialize/index.js");
+// TODO(#4189): Replace with implementation in yarn-project/foundation/src/fields/fields.ts
+/**
+ * Fr field class.
+ * @dev This class is used to represent elements of BN254 scalar field or elements in the base field of Grumpkin.
+ * (Grumpkin's scalar field corresponds to BN254's base field and vice versa.)
+ */
+class Fr {
+    constructor(value) {
+        // We convert buffer value to bigint to be able to check it fits within modulus
+        const valueBigInt = typeof value === 'bigint' ? value : (0, index_js_2.toBigIntBE)(value);
+        if (valueBigInt > _a.MAX_VALUE) {
+            throw new Error(`Value 0x${valueBigInt.toString(16)} is greater or equal to field modulus.`);
+        }
+        this.value = typeof value === 'bigint' ? (0, index_js_2.toBufferBE)(value) : value;
+    }
+    static random() {
+        const r = (0, index_js_2.toBigIntBE)((0, index_js_1.randomBytes)(64)) % _a.MODULUS;
+        return new this(r);
+    }
+    static fromBuffer(buffer) {
+        const reader = index_js_3.BufferReader.asReader(buffer);
+        return new this(reader.readBytes(this.SIZE_IN_BYTES));
+    }
+    static fromBufferReduce(buffer) {
+        const reader = index_js_3.BufferReader.asReader(buffer);
+        return new this((0, index_js_2.toBigIntBE)(reader.readBytes(this.SIZE_IN_BYTES)) % _a.MODULUS);
+    }
+    static fromString(str) {
+        return this.fromBuffer(Buffer.from(str.replace(/^0x/i, ''), 'hex'));
+    }
+    toBuffer() {
+        return this.value;
+    }
+    toString() {
+        return '0x' + (0, index_js_3.uint8ArrayToHexString)(this.toBuffer());
+    }
+    equals(rhs) {
+        return this.value.every((v, i) => v === rhs.value[i]);
+    }
+    isZero() {
+        return this.value.every(v => v === 0);
+    }
+}
+exports.Fr = Fr;
+_a = Fr;
+Fr.ZERO = new _a(0n);
+Fr.MODULUS = 0x30644e72e131a029b85045b68181585d2833e84879b9709143e1f593f0000001n;
+Fr.MAX_VALUE = _a.MODULUS - 1n;
+Fr.SIZE_IN_BYTES = 32;
+/**
+ * Fq field class.
+ * @dev This class is used to represent elements of BN254 base field or elements in the scalar field of Grumpkin.
+ * (Grumpkin's scalar field corresponds to BN254's base field and vice versa.)
+ */
+class Fq {
+    constructor(value) {
+        this.value = value;
+        if (value > _b.MAX_VALUE) {
+            throw new Error(`Fq out of range ${value}.`);
+        }
+    }
+    static random() {
+        const r = (0, index_js_2.toBigIntBE)((0, index_js_1.randomBytes)(64)) % _b.MODULUS;
+        return new this(r);
+    }
+    static fromBuffer(buffer) {
+        const reader = index_js_3.BufferReader.asReader(buffer);
+        return new this((0, index_js_2.toBigIntBE)(reader.readBytes(this.SIZE_IN_BYTES)));
+    }
+    static fromBufferReduce(buffer) {
+        const reader = index_js_3.BufferReader.asReader(buffer);
+        return new this((0, index_js_2.toBigIntBE)(reader.readBytes(this.SIZE_IN_BYTES)) % Fr.MODULUS);
+    }
+    static fromString(str) {
+        return this.fromBuffer(Buffer.from(str.replace(/^0x/i, ''), 'hex'));
+    }
+    toBuffer() {
+        return (0, index_js_2.toBufferBE)(this.value, _b.SIZE_IN_BYTES);
+    }
+    toString() {
+        return '0x' + this.value.toString(16);
+    }
+    equals(rhs) {
+        return this.value === rhs.value;
+    }
+    isZero() {
+        return this.value === 0n;
+    }
+}
+exports.Fq = Fq;
+_b = Fq;
+Fq.MODULUS = 0x30644e72e131a029b85045b68181585d97816a916871ca8d3c208c16d87cfd47n;
+Fq.MAX_VALUE = _b.MODULUS - 1n;
+Fq.SIZE_IN_BYTES = 32;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZmllbGRzLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vc3JjL3R5cGVzL2ZpZWxkcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O0FBQUEsaURBQWlEO0FBQ2pELHVEQUFrRTtBQUNsRSxvREFBNEU7QUFFNUUsMkZBQTJGO0FBQzNGOzs7O0dBSUc7QUFDSCxNQUFhLEVBQUU7SUFPYixZQUFZLEtBQTBCO1FBQ3BDLCtFQUErRTtRQUMvRSxNQUFNLFdBQVcsR0FBRyxPQUFPLEtBQUssS0FBSyxRQUFRLENBQUMsQ0FBQyxDQUFDLEtBQUssQ0FBQyxDQUFDLENBQUMsSUFBQSxxQkFBVSxFQUFDLEtBQUssQ0FBQyxDQUFDO1FBRTFFLElBQUksV0FBVyxHQUFHLEVBQUUsQ0FBQyxTQUFTLEVBQUUsQ0FBQztZQUMvQixNQUFNLElBQUksS0FBSyxDQUFDLFdBQVcsV0FBVyxDQUFDLFFBQVEsQ0FBQyxFQUFFLENBQUMsd0NBQXdDLENBQUMsQ0FBQztRQUMvRixDQUFDO1FBRUQsSUFBSSxDQUFDLEtBQUssR0FBRyxPQUFPLEtBQUssS0FBSyxRQUFRLENBQUMsQ0FBQyxDQUFDLElBQUEscUJBQVUsRUFBQyxLQUFLLENBQUMsQ0FBQyxDQUFDLENBQUMsS0FBSyxDQUFDO0lBQ3JFLENBQUM7SUFFRCxNQUFNLENBQUMsTUFBTTtRQUNYLE1BQU0sQ0FBQyxHQUFHLElBQUEscUJBQVUsRUFBQyxJQUFBLHNCQUFXLEVBQUMsRUFBRSxDQUFDLENBQUMsR0FBRyxFQUFFLENBQUMsT0FBTyxDQUFDO1FBQ25ELE9BQU8sSUFBSSxJQUFJLENBQUMsQ0FBQyxDQUFDLENBQUM7SUFDckIsQ0FBQztJQUVELE1BQU0sQ0FBQyxVQUFVLENBQUMsTUFBaUM7UUFDakQsTUFBTSxNQUFNLEdBQUcsdUJBQVksQ0FBQyxRQUFRLENBQUMsTUFBTSxDQUFDLENBQUM7UUFDN0MsT0FBTyxJQUFJLElBQUksQ0FBQyxNQUFNLENBQUMsU0FBUyxDQUFDLElBQUksQ0FBQyxh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

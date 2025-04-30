@@ -1,0 +1,6 @@
+{
+	"dependencies": {
+		"@noir-lang/noir_js": "1.0.0-beta.2",
+		"@aztec/bb.js": "0.72.1"
+	}
+}
