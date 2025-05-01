@@ -1,8 +1,10 @@
 {
-  "name": "23-connect-ton-wallet-github",
+  "name": "neurozk",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://github.com/olivmath/neurozk",
   "scripts": {
+    "deploy": "gh-pages -d dist",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -17,6 +19,7 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "gh-pages": "^6.1.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
