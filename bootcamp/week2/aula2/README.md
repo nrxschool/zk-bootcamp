@@ -64,7 +64,7 @@ Arquiteturas L2 precisam adaptar sua infraestrutura para processar e validar pro
 
 ## **5. Solução com ZkVerify**
 
-- **Stack**
+### **Stack**
 
 Lang: Rust
 Framework: Polkadot SDK
@@ -73,6 +73,13 @@ Wallets: Talisman, SubWallet
 Fullnodes: RPC nodes, Boot nodes, Validator nodes
 ProvasZK: Groth16, UltraPlonk, Risc0, Plonky2, Proof of SQL
 
+---
+
+## **6. Hands-on**
+
+1. Subir um node
+2. Criar wallets de testes
+3. Transferir Token entre wallets
 ---
 
 ## **9. Recapitulação:**
