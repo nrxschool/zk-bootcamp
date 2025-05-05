@@ -1,109 +1,89 @@
-# 🔐 Aula 4: **Casos de uso e Provas ZK**
+---
+marp: true
+theme: gaia
+---
 
-📅 **06/05**  
-👨‍🏫 **Professor:** Lucas Oliveira  
-📍 **YouTube**  
-⏱ **Duração:** 1 hora
+# **Aula 4: Mini Apps**
+
+- data: 08/05
+- prof: Lucas Oliveira
+
+## **1. Abertura**
+
+**Hello World!**
+
+Sejam todos bem-vindos ao GRANDE CÓDIGO.
+
+Bootcamp/Hackathon/Incubação da NearX
+
+Sua porta de entrada para o ecossistema blockchain/web3 e provas ZK.
+
+Hoje vou te ensinar os Provas ZK na prática
 
 ---
 
-## 🎬 **[00:00 – 05:00] – Abertura e contextualização**
+## **2. Programação**
 
-- Boas-vindas e revisão rápida da aula anterior (SDK ZkVerify e stack técnica).
-- Objetivo da aula:
-  - Criar um mini dApp com ZK Proofs
-  - Ver passo a passo: geração, envio, verificação de uma prova
-  - Integrar com o **ZkVerify**
-  - Mostrar **um fluxo completo funcional ao vivo**
-
-> 🧠 “Hoje é dia de _mão na massa_ com provas ZK funcionando em tempo real.”
+1. **Casos de uso de Provas ZK**
+2. **Problemas das Arquiteturas Web3-ZK 2025**
+3. **Solução com ZkVerify**
 
 ---
 
-## ⚙️ **[05:00 – 20:00] – Criação de dApp com Provas ZK**
+## **3. Casos de uso de Provas ZK**
 
-### 📍 Casos de uso possíveis:
-
-- Acesso anônimo a um sistema com verificação de idade
-- Validação de identidade sem revelar CPF/email
-- Checkpoint de participação em eventos (proof-of-attendance)
-- Comprovação de saldo sem mostrar carteira
-
-### 🛠 Setup do projeto:
-
-- Stack sugerida:
-  - Frontend: Next.js ou Vite + React
-  - Backend (opcional): Node.js + Express
-  - Biblioteca: `zkverify-sdk`
-
-```bash
-npx create-vite@latest zk-dapp --template react
-cd zk-dapp && npm install zkverify-sdk
-```
+- Caso 1
+- Caso 2
+- Caso 3
 
 ---
 
-## 🧪 **[20:00 – 35:00] – Geração e Envio de Provas ZK**
+## **4. Problemas das Arquiteturas Web3-ZK 2025**
 
-### 1. Simular geração de dados (ex: idade > 18)
-
-```js
-const input = { idade: 20 };
-const prova = await zk.generateProof(input);
-```
-
-### 2. Enviar prova ao ZkVerify
-
-```js
-const resposta = await zk.sendProof(prova);
-```
-
-### 3. Verificar a resposta
-
-```js
-if (resposta.verificada) {
-  console.log("Prova validada!");
-}
-```
-
-> 🔍 Mostrar no console / rede os dados sendo trafegados
+- Provas ZK
+- EVM e curvas criptograficas
+- Rollups e Arquiteturas
 
 ---
 
-## 🔗 **[35:00 – 45:00] – Integração com ZkVerify**
+## **5. Solução com ZkVerify**
 
-- Apresentar endpoints reais de verificação
-- Mostrar onde o dApp consome os atestados
-- Como armazenar ou exibir os resultados para o usuário
-
-> Ex: após verificação, liberar botão de acesso ou mostrar badge
-
-```js
-const atestado = await zk.getAttestation(userId);
-```
+- Tokenomics
+- Stack
+- How to work
 
 ---
 
-## 🧑‍💻 **[45:00 – 55:00] – Demonstração ao vivo do fluxo completo**
+## **9. Recapitulação:**
 
-1. Usuário entra na aplicação
-2. Envia seus dados para geração da prova
-3. Prova é gerada → enviada ao ZkVerify
-4. Verificação retorna atestado válido
-5. UI muda: “Acesso concedido” ou “Atestado gerado com sucesso”
-
-> Mostrar isso ao vivo rodando no navegador
+- Hoje vimos os fundamentos da segurança criptográfica no mundo blockchain:
+- Como representamos dados (Base58/Base64)
+- Como garantimos integridade (Hash)
+- Como protegemos segredos (AES)
+- Como provamos identidade (Assinaturas Digitais)
 
 ---
 
-## ✅ **[55:00 – 60:00] – Encerramento e próximos passos**
+## **10. Lição de Casa**
 
-- Recapitular o que foi construído
-- Reforçar que _qualquer lógica sensível_ pode virar uma prova ZK
-- Desafiar os alunos a imaginar e criar seus próprios fluxos:
-  > “Como vocês usariam ZK para melhorar apps de saúde, educação ou identidade?”
+### Desafio de Aprendizagem
 
-### 📌 Call-to-action:
+1. Subir um node ZkVerify na sua Máquina
 
-- Postem seu mini dApp ou ideia no Discord
-- Amanhã: começamos a Semana do Hackathon → estejam prontos com seus projetos iniciais!
+### Desafio de Carreira
+
+2. Post no Linkedin #zknearx (6/10)
+
+### Desafio de Comunidade
+
+3. 🎥 Post a foto do seu Anime/Filme/Série Favorito de 2025
+
+---
+
+## **11. Próxima Aula**
+
+**09/05 – Projeto Fullstack**
+
+- Vamos fazer deploy do nosso Mini App ZK no Telegram!
+
+_"Não esqueça: Aula ao vivo amanhã, 19h, no YouTube. Traga suas dúvidas!"_

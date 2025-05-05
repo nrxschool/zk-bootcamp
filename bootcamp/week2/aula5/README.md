@@ -1,105 +1,123 @@
-# 🧩 Aula 5: **Projeto FullStack 2 – Integração Completa**
+---
+marp: true
+theme: gaia
+---
 
-📅 **07/05**  
-👨‍🏫 **Professor:** Lucas Oliveira  
-📍 **YouTube**  
-⏱ **Duração:** 1 hora
+# **Aula 5: Projeto Fullstack #1**
+
+- data: 09/05
+- prof: Lucas Oliveira
+
+## **1. Abertura**
+
+**Hello World!**
+
+Sejam todos bem-vindos ao GRANDE CÓDIGO.
+
+Bootcamp/Hackathon/Incubação da NearX
+
+Sua porta de entrada para o ecossistema blockchain/web3 e provas ZK.
+
+Hoje vamos fazer o deploy do nosso projeto.
 
 ---
 
-## 🎬 **[00:00 – 05:00] – Abertura e objetivo do dia**
+## **2. Programação**
 
-- Recapitulação da aula anterior (provas ZK, fluxo de verificação)
-- Objetivo de hoje:
-  - Finalizar o dApp completo
-  - Garantir a **integração entre frontend, smart contract e ZkVerify**
-  - Preparar para **entrega e mentoria**
-
-> 🧠 “Hoje a gente fecha a base do projeto que vocês vão evoluir no Hackathon.”
+1. **Deploy dos smartcontracts**:
+2. **Deploy do Dapp**
+3. **Integração**
 
 ---
 
-## 🧱 **[05:00 – 20:00] – Estrutura do Projeto FullStack**
+## **3. Deploy de Smart Contracts**
 
-### 1. Frontend
+### 1. Pegar Faucet
 
-- Interface amigável (Next.js / Vite + React)
-- Formulário de entrada de dados → geração de prova
-- Exibição do atestado após validação
+### 2. Deploy com `forge script`
 
-### 2. Smart Contract
-
-- Solidity + Foundry
-- Função `validateProof(address user, string calldata proof)` que registra a verificação
-- Evento `ProofValidated(address user, string proof)`
-
-```solidity
-function validateProof(address user, string calldata proof) external {
-    require(msg.sender == verifier, "Not authorized");
-    validatedProofs[user] = proof;
-    emit ProofValidated(user, proof);
-}
-```
-
-### 3. Backend / SDK
-
-- Comunicação com ZkVerify SDK ou API REST
-- Backend opcional: apenas para autenticar e intermediar requests
+### 3. Verificar smartcontract com Etherscan
 
 ---
 
-## 🔄 **[20:00 – 40:00] – Integração Completa (Live Coding)**
+## **4. Deploy de Dapp na Vercel**
 
-### ✅ Passo a passo:
+### 1. Conta na Vercel
 
-1. Usuário envia dado → Geração de Prova
-2. Front envia para ZkVerify
-3. ZkVerify retorna atestado
-4. Front envia atestado ao contrato
-5. Contrato registra a verificação
-6. Front lê evento e exibe sucesso
-
-### Demonstração no VSCode:
-
-- Mostrar `App.tsx`, `zk.ts`, `contract.sol`
-- Executar `forge script` e `cast send` para deploy e interação
-
-> Mostrar logs ao vivo no terminal e console do navegador
+### 2. Deploy com `vercel deploy`
 
 ---
 
-## 🧑‍🔧 **[40:00 – 50:00] – Suporte técnico e boas práticas**
+## **5. Interação com Metamask**
 
-- Checklist de entrega:
+### 1. Mintar tokens
 
-  - [ ] Frontend funcional com UI amigável
-  - [ ] ZkVerify integrado com prova real
-  - [ ] Smart contract no testnet com interação registrada
-  - [ ] Repositório no GitHub atualizado
-
-- Dicas:
-  - Teste com `--fork` usando Foundry
-  - Valide provas manualmente no início
-  - Use `event logs` para debug
-
-> 🧰 “Se der bug, olhe os logs. Eles contam tudo.”
+### 2. Transferir tokens
 
 ---
 
-## 🎓 **[50:00 – 60:00] – Preparação para a Mentoria**
+## **8. Recapitulação**
 
-- Mostrar como submeter o projeto:
+- Nesta aula, finalizamos o nosso primeiro projeto Fullstack! 🚀
+- Realizamos o deploy dos smart contracts usando o Forge.
+- Fizemos o deploy do front-end na Vercel.
+- Interagimos com o contrato via Metamask (mint e transferência de tokens).
+- Compreendemos a jornada de ponta a ponta de um Dapp no ar.
 
-  - Repositório + vídeo curto explicando
-  - Link do deploy/testnet se possível
+---
 
-- Explicar como funcionará a mentoria:
-  - Feedback técnico
-  - Ideias para evolução do dApp
-  - Acompanhamento para quem quiser **participar do Hackathon com o projeto**
+## **9. Lição de Casa**
 
-### 📌 Call-to-action:
+### Desafio de Aprendizagem
 
-- Envie até amanhã às 12h
-- Use o canal do Discord #entregas-fullstack
-- Prepare-se para o desafio oficial 💪
+- Faça deploy e verificação dos seus contrato
+- Faça deploy do seu Dapp
+- Envie seu projeto para o github com um README
+
+---
+
+### Desafio de Carreira
+
+- Post no Linkedin #zknearx (5/10)
+
+---
+
+### Desafio de Comunidade
+
+- 🎻 Post uma foto do seu Hobby (ou do vc quer iniciar)
+
+---
+
+## **10. Próxima Semana - Hackathon!**
+
+---
+
+### Segunda (12/05)
+
+# **Ideia & Design de Produto**
+
+### Caio Mattos - CEO @ Nearx
+
+---
+
+### Terça (13/05)
+
+# **Roadmap de Projeto**
+
+### Manoel Lúcio - CTO @ Nearx
+
+---
+
+### Quarta (14/05)
+
+# **Desenvolvimento de MVPs**
+
+### Manoel Lúcio - CEO @ Nearx
+
+---
+
+### Quinta (15/05)
+
+# **Negócio e Monetização**
+
+### Carlos Alberto - COO @ Nearx

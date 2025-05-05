@@ -1,113 +1,89 @@
-# 🧩 Aula 2: **Arquitetura ZkVerify**
+---
+marp: true
+theme: gaia
+---
 
-📅 **04/05**  
-👨‍🏫 **Professor:** Lucas Oliveira  
-📍 **YouTube**  
-⏱ **Duração:** 1 hora
+# **Aula 2: ZkVerify 101**
+
+- data: 06/05
+- prof: Lucas Oliveira
+
+## **1. Abertura**
+
+**Hello World!**
+
+Sejam todos bem-vindos ao GRANDE CÓDIGO.
+
+Bootcamp/Hackathon/Incubação da NearX
+
+Sua porta de entrada para o ecossistema blockchain/web3 e provas ZK.
+
+Hoje você vai aprender sobre o que se trata a ZkVerify
 
 ---
 
-## 🎬 **[00:00 – 05:00] – Abertura**
+## **2. Programação**
 
-- Objetivo da aula: entender o **ZkVerify como infraestrutura crítica de provas ZK**
-- Como isso se conecta com o que já vimos: segurança, autenticação, assinatura e agora... _verificação com privacidade!_
-
----
-
-## 🌐 **[05:00 – 15:00] – ZkVerify no ecossistema Web3**
-
-- O que é a **ZkVerify**:
-
-  - Infraestrutura para verificação de provas ZK
-  - Protocolo modular, interoperável e focado em _escalar a verificação_
-
-- Motivação do projeto:
-
-  - Verificar provas on-chain é **caro**
-  - ZkVerify reduz custos, melhora UX e viabiliza aplicações reais
-
-- Onde ela se encaixa:
-  - dApps que usam identidades, KYC, votação, reputação
-  - Rollups, pontes, dApps com privacidade e segurança avançada
+1. **Casos de uso de Provas ZK**
+2. **Problemas das Arquiteturas Web3-ZK 2025**
+3. **Solução com ZkVerify**
 
 ---
 
-## ⚙️ **[15:00 – 25:00] – Sistema de verificação e atestados descentralizados**
+## **3. Casos de uso de Provas ZK**
 
-- Como funciona o **modelo de atestados**:
-
-  - Usuário envia uma prova para verificação
-  - ZkVerify valida e **publica um atestado on-chain**
-  - Esse atestado é reutilizável (sem precisar repetir o cálculo)
-
-- Componentes principais:
-
-  - ZK Circuits
-  - ZK Provers (off-chain)
-  - Verificadores (on-chain)
-  - Atestados (state commitments verificados)
-
-- Segurança e descentralização:
-  - Modelo de múltiplos provedores
-  - Criptografia + blockchain = confiança sem intermediários
+- Caso 1
+- Caso 2
+- Caso 3
 
 ---
 
-## 📖 **[25:00 – 35:00] – Leitura guiada do whitepaper e documentação**
+## **4. Problemas das Arquiteturas Web3-ZK 2025**
 
-- Apresentar os pontos principais do whitepaper:
-
-  - Arquitetura modular
-  - Protocolo de atestados
-  - Incentivos e descentralização da rede
-
-- Mostrar como navegar na documentação:
-  - SDK
-  - Exemplos de uso
-  - Como integrar em um dApp
-
-> 🔗 [Deixe um link para o whitepaper e a doc oficial no chat/descrição do vídeo]
+- Provas ZK
+- EVM e curvas criptograficas
+- Rollups e Arquiteturas
 
 ---
 
-## 🧪 **[35:00 – 45:00] – Casos de uso**
+## **5. Solução com ZkVerify**
 
-- Rollups (zk-rollups):  
-  → Validam lotes de transações com uma única prova
-
-- dApps com reputação:  
-  → Login com ZK, sem expor dados sensíveis
-
-- Hackathons e votações:  
-  → Participantes provam que têm direito sem revelar identidade
-
-- Integrações futuras:
-  - ZK-KYC, verificações financeiras, modelos de credenciais
+- Tokenomics
+- Stack
+- How to work
 
 ---
 
-## 🚀 **[45:00 – 55:00] – Envio conceitual de provas ZK**
+## **9. Recapitulação:**
 
-- Passo a passo conceitual:
-
-  1. Gerar uma prova ZK com um circuito
-  2. Enviar a prova para o verificador da ZkVerify
-  3. ZkVerify gera um atestado
-  4. Outro contrato consome esse atestado para dar acesso, validar ou liberar algo
-
-- Mostrar o fluxo visualmente (slide ou diagrama):
-  - 🧠 Usuário → 🧪 ZK Prova → ✅ ZkVerify → 🔐 Atestado → 📲 dApp
+- Hoje vimos os fundamentos da segurança criptográfica no mundo blockchain:
+- Como representamos dados (Base58/Base64)
+- Como garantimos integridade (Hash)
+- Como protegemos segredos (AES)
+- Como provamos identidade (Assinaturas Digitais)
 
 ---
 
-## 📢 **[55:00 – 60:00] – Encerramento**
+## **10. Lição de Casa**
 
-- Conectar com o que vem a seguir:
+### Desafio de Aprendizagem
 
-  - “Amanhã entraremos na stack de desenvolvimento com ZkVerify”
-  - “Hoje entendemos o que ela é, amanhã vamos entender como **codar com ela**”
+1. Subir um node ZkVerify na sua Máquina
 
-- Chamada para ação:
-  - Leiam o whitepaper
-  - Entrem no Discord/Telegram da ZkVerify se disponível
-  - Preparem dúvidas para trazer amanhã
+### Desafio de Carreira
+
+2. Post no Linkedin #zknearx (6/10)
+
+### Desafio de Comunidade
+
+3. 🕹️ Post a foto do seu jogo mais jogado (favorito) de 2025
+
+---
+
+## **11. Próxima Aula**
+
+**07/05 – Provas ZK 101**
+
+- Vamos aprender sobre Provas ZK na prática!
+
+_"Não esqueça: Aula ao vivo amanhã, 19h, no YouTube. Traga suas dúvidas!"_

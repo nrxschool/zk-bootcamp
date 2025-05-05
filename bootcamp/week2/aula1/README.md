@@ -3,7 +3,7 @@ marp: true
 theme: gaia
 ---
 
-# **Aula 1: Introdução à Web3**
+# **Aula 1: Introdução à Criptografia**
 
 - data: 05/05
 - prof: Lucas Oliveira
@@ -179,7 +179,7 @@ console.log("Assinatura válida?", isValid);
 
 ## **11. Próxima Aula**
 
-**06/05 – Introdução ao Solidity**
+**06/05 – ZkVerify 101**
 
 - Vamos mergulhar mais fundo em arquiteturas de blockchain para entender o que é a ZKVerify
 
