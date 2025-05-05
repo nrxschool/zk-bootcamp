@@ -18,7 +18,7 @@ Bootcamp/Hackathon/Incubação da NearX
 
 Sua porta de entrada para o ecossistema blockchain/web3 e provas ZK.
 
-Hoje você vai aprender sobre o que se trata a ZkVerify
+Hoje você vai aprender o que é o ZkVerify e por que ele resolve um problema real da Web3 moderna.
 
 ---
 
@@ -32,35 +32,56 @@ Hoje você vai aprender sobre o que se trata a ZkVerify
 
 ## **3. Casos de uso de Provas ZK**
 
-- Caso 1
-- Caso 2
-- Caso 3
+- **Caso 1: Verificação de identidade sem expor dados**
+
+Usuário prova que tem uma conta verificada em um serviço (como o GOV.br) sem revelar CPF, nome ou e-mail.
+
+- **Caso 2: Prova de solvência de exchanges**
+
+Uma exchange pode provar que tem mais ativos do que passivos _sem revelar valores_ nem endereços das carteiras.
+
+- **Caso 3: Provar que você é maior de idade sem mostrar sua data de nascimento**
+
+O usuário envia uma prova que comprova que sua idade é ≥ 18, mas a data de nascimento continua privada.
 
 ---
 
 ## **4. Problemas das Arquiteturas Web3-ZK 2025**
 
-- Provas ZK
-- EVM e curvas criptograficas
-- Rollups e Arquiteturas
+- **Provas ZK são pesadas**
+
+Criar e verificar uma prova ainda é caro em tempo e energia computacional.
+
+- **Curvas criptográficas incompatíveis com a EVM**
+
+A EVM foi feita com `secp256k1`, mas muitas provas ZK exigem curvas como BLS12-381, que não são nativamente suportadas.
+
+- **Rollups ZK exigem customizações**
+
+Arquiteturas L2 precisam adaptar sua infraestrutura para processar e validar provas ZK — o que aumenta a complexidade e o custo.
 
 ---
 
 ## **5. Solução com ZkVerify**
 
-- Tokenomics
-- Stack
-- How to work
+- **Stack**
+
+Lang: Rust
+Framework: Polkadot SDK
+Consensus: PoS (BABE & GRAMP)
+Wallets: Talisman, SubWallet
+Fullnodes: RPC nodes, Boot nodes, Validator nodes
+ProvasZK: Groth16, UltraPlonk, Risc0, Plonky2, Proof of SQL
 
 ---
 
 ## **9. Recapitulação:**
 
-- Hoje vimos os fundamentos da segurança criptográfica no mundo blockchain:
-- Como representamos dados (Base58/Base64)
-- Como garantimos integridade (Hash)
-- Como protegemos segredos (AES)
-- Como provamos identidade (Assinaturas Digitais)
+- Hoje você aprendeu sobre:
+  - O que são provas de conhecimento zero (ZK)
+  - Três casos de uso reais de ZK no mercado atual
+  - Por que a EVM e os rollups enfrentam desafios técnicos com ZK
+  - Como o ZkVerify propõe resolver esses problemas de forma prática
 
 ---
 
@@ -68,15 +89,15 @@ Hoje você vai aprender sobre o que se trata a ZkVerify
 
 ### Desafio de Aprendizagem
 
-1. Subir um node ZkVerify na sua Máquina
+1. Suba um node ZkVerify na sua máquina (use a doc oficial)
 
 ### Desafio de Carreira
 
-2. Post no Linkedin #zknearx (6/10)
+2. Faça um post no LinkedIn com o que você aprendeu e marque com #zknearx (6/10)
 
 ### Desafio de Comunidade
 
-3. 🕹️ Post a foto do seu jogo mais jogado (favorito) de 2025
+3. 🕹️ Poste no Discord uma foto do jogo mais jogado (ou favorito) de 2025
 
 ---
 
@@ -84,6 +105,6 @@ Hoje você vai aprender sobre o que se trata a ZkVerify
 
 **07/05 – Provas ZK 101**
 
-- Vamos aprender sobre Provas ZK na prática!
+- Vamos explorar as bibliotecas, ferramentas e linguagens mais usadas para criar provas ZK na prática.
 
 _"Não esqueça: Aula ao vivo amanhã, 19h, no YouTube. Traga suas dúvidas!"_
