@@ -18,7 +18,7 @@ Bootcamp/Hackathon/Incubação da NearX
 
 Sua porta de entrada para o ecossistema blockchain/web3 e provas ZK.
 
-Hoje vou te ensinar os Provas ZK na prática
+Hoje entender o que são os Mini Apps do Telegram
 
 ---
 
