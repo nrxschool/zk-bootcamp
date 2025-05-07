@@ -80,9 +80,10 @@ ProvasZK: Groth16, UltraPlonk, Risc0, Plonky2, Proof of SQL
 1. Subir um node
 2. Criar wallets de testes
 3. Transferir Token entre wallets
+
 ---
 
-## **9. Recapitulação:**
+## **7. Recapitulação:**
 
 - Hoje você aprendeu sobre:
   - O que são provas de conhecimento zero (ZK)
@@ -92,7 +93,7 @@ ProvasZK: Groth16, UltraPlonk, Risc0, Plonky2, Proof of SQL
 
 ---
 
-## **10. Lição de Casa**
+## **8. Lição de Casa**
 
 ### Desafio de Aprendizagem
 
@@ -108,7 +109,7 @@ ProvasZK: Groth16, UltraPlonk, Risc0, Plonky2, Proof of SQL
 
 ---
 
-## **11. Próxima Aula**
+## **9. Próxima Aula**
 
 **07/05 – Provas ZK 101**
 
