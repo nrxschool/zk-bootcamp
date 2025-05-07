@@ -18,49 +18,159 @@ Bootcamp/Hackathon/Incubação da NearX
 
 Sua porta de entrada para o ecossistema blockchain/web3 e provas ZK.
 
-Hoje vou te ensinar os Provas ZK na prática
+Hoje vamos colocar a mão na massa com Provas ZK.
 
 ---
 
 ## **2. Programação**
 
-1. **Casos de uso de Provas ZK**
-2. **Problemas das Arquiteturas Web3-ZK 2025**
-3. **Solução com ZkVerify**
+0. **Merkle Tree**
+1. **Tipos de Provas e Casos de Uso**
+2. **Linguagens e Bibliotecas**
+3. **Ciclo de Vida de uma Prova ZK**
+4. **Hands-on com Noir + ZkVerify**
 
 ---
 
-## **3. Casos de uso de Provas ZK**
+## **3. Merkle Tree**
 
-- Caso 1
-- Caso 2
-- Caso 3
-
----
-
-## **4. Problemas das Arquiteturas Web3-ZK 2025**
-
-- Provas ZK
-- EVM e curvas criptograficas
-- Rollups e Arquiteturas
+- merkle root
+- merkle path
+- leaf
 
 ---
 
-## **5. Solução com ZkVerify**
+## **4. Groth16**
 
-- Tokenomics
-- Stack
-- How to work
+- **Linguagens/Bibliotecas:**  
+  Circom + SnarkJS, Arkworks, ZoKrates
+- **Maturidade:** Alta, muito usada em Ethereum
+- **Prós:**
+  - Provas pequenas (~200 bytes)
+  - Verificação rápida e barata na EVM
+- **Contras:**
+  - Setup confiável (trusted setup)
+  - Menos flexível para circuitos dinâmicos
+- **Casos de uso:**
+  - Tornado Cash
+  - verificação de identidade
+  - votações privadas
 
 ---
 
-## **9. Recapitulação:**
+## **5. PLONK**
 
-- Hoje vimos os fundamentos da segurança criptográfica no mundo blockchain:
-- Como representamos dados (Base58/Base64)
-- Como garantimos integridade (Hash)
-- Como protegemos segredos (AES)
-- Como provamos identidade (Assinaturas Digitais)
+- **Linguagens/Bibliotecas:**  
+  Circom + SnarkJS, Aztec, Halo2
+- **Maturidade:** Crescendo rapidamente
+- **Prós:**
+  - Setup universal
+  - Mais flexível que Groth16
+- **Contras:**
+  - Provas maiores
+  - Mais caro que Groth16 em algumas EVMs
+- **Casos de uso:**
+  - zkRollups (Aztec, Scroll)
+  - KYC privado
+
+---
+
+## **6. STARKs**
+
+- **Linguagens/Bibliotecas:**  
+  Cairo, Risc0, Starky
+- **Maturidade:** Alta (StarkNet em produção)
+- **Prós:**
+  - Sem trusted setup
+  - Transparente e auditável
+- **Contras:**
+  - Provas grandes (~100kb+)
+  - Verificação cara na EVM
+- **Casos de uso:**
+  - StarkNet
+  - Provas de execução de jogos ou ML
+
+---
+
+## **7. Bulletproofs**
+
+- **Linguagens/Bibliotecas:**  
+  Dalek, zkVM, Monero
+- **Maturidade:** Média
+- **Prós:**
+  - Sem trusted setup
+  - Compacta em alguns casos
+- **Contras:**
+  - Verificação lenta
+  - Difícil escalar para circuitos grandes
+- **Casos de uso:**
+  - Confidential transactions (Monero)
+  - Provas de range (ex: idade mínima)
+
+---
+
+## **8. Ciclo de Vida de uma Prova ZK**
+
+1. **Compilação do circuito** (ex: Noir)
+2. **Geração da prova** com dados do usuário
+3. **Verificação da prova** (local ou via ZkVerify)
+4. **Publicação do atestado** (proof ID)
+5. **Verificação on-chain** usando o smart contract da ZkVerify
+
+---
+
+## **9. Hands-on com Noir**
+
+### Objetivo:
+
+Criar uma prova de que uma pessoa tem **≥ 18 anos** sem mostrar a data de nascimento.
+
+---
+
+### Etapa 1: Criar um circuito em Noir
+
+```rust
+fn main(birth_year: u16, current_year: u16) {
+    age: u16 = current_year - birth_year;
+    assert(age >= 18);
+}
+```
+
+---
+
+### Etapa 2: Usar Node.js para gerar uma prova
+
+```ts
+
+```
+
+---
+
+### Etapa 3: Usar ZkVerify para verificar a prova
+
+```ts
+
+```
+
+---
+
+### Etapa 4: Salvar o ID no contrato
+
+- Publica o proof ID na ZkVerify
+- Smart contract verifica esse ID on-chain
+- Útil para gates de acesso, reputação, KYC, etc.
+
+---
+
+## **9. Recapitulação**
+
+Hoje você aprendeu:
+
+- Diferenças entre os tipos de provas ZK e onde usar cada uma
+- Linguagens e ferramentas populares (Noir, Circom, Cairo...)
+- Como funciona o ciclo de vida de uma prova ZK
+- Criou sua primeira prova usando Noir
+- Verificou localmente, mandou para o ZkVerify e integrou com contrato inteligente
 
 ---
 
@@ -68,15 +178,15 @@ Hoje vou te ensinar os Provas ZK na prática
 
 ### Desafio de Aprendizagem
 
-1. Subir um node ZkVerify na sua Máquina
+1. Gere uma prova Noir com outra lógica (ex: salário maior que X)
 
 ### Desafio de Carreira
 
-2. Post no Linkedin #zknearx (6/10)
+2. Poste no LinkedIn a diferença entre STARKs e SNARKs com a #zknearx (7/10)
 
 ### Desafio de Comunidade
 
-3. 🎥 Post a foto do seu Anime/Filme/Série Favorito de 2025
+3. 🧠 Poste no Discord uma ideia de app que use ZK para proteger privacidade
 
 ---
 
@@ -84,6 +194,6 @@ Hoje vou te ensinar os Provas ZK na prática
 
 **08/05 – Mini Apps**
 
-- Vamos aprender o que são os Mini Apps do Telegram!
+Vamos aprender o que são os Mini Apps do Telegram e como usá-los para criar experiências blockchain.
 
 _"Não esqueça: Aula ao vivo amanhã, 19h, no YouTube. Traga suas dúvidas!"_
