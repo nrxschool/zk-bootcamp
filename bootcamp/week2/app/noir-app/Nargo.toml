@@ -1,5 +1,5 @@
 [package]
-name = "app"
+name = "circuit"
 type = "bin"
 authors = [""]
 

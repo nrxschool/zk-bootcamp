@@ -1,6 +1,15 @@
 {
 	"dependencies": {
 		"@noir-lang/noir_js": "1.0.0-beta.2",
-		"@aztec/bb.js": "0.72.1"
+		"@aztec/bb.js": "0.72.1",
+		"qrcode": "^1.5.3"
+	},
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"vite": "^5.0.0"
 	}
 }
