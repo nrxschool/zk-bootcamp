@@ -48,7 +48,38 @@ document.getElementById("submit").addEventListener("click", async () => {
 
     const witness = await generateWitness(noir, birth_year);
     const proof = await generateProof(backend, witness);
+
+    console.log("typeof proof:", typeof(proof))
+    console.log("show proof:", proof)
+    
     await verifyProof(backend, proof);
+    const vk = await backend.getVerificationKey();
+    console.log("show vk:", vk)
+
+    // send ( proof, vk ) to backend
+    try {
+      const response = await fetch("http://localhost:3030/verify", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          public_inputs: proof.publicInputs[0],
+          proof: proof.proof,
+          vk: vk,
+        }),
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        show("logs", "✅ Proof verified and sent to server successfully!");
+      } else {
+        show("logs", "❌ Server verification failed");
+      }
+    } catch (error) {
+      show("logs", "❌ Error sending proof to server");
+      console.error(error);
+    }
   } catch (error) {
     show("logs", "Oh 💔 (see logs)");
     console.error(error);

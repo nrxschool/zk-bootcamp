@@ -1,0 +1,24 @@
+{
+  "name": "noir-app-v2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.8.0",
+  "dependencies": {
+      "@aztec/bb.js": "0.72.1",
+      "@noir-lang/noir_js": "1.0.0-beta.2",
+      "qrcode": "^1.5.3",
+      "zkverifyjs": "^0.12.1"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

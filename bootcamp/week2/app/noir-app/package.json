@@ -1,16 +1,20 @@
 {
-	"dependencies": {
-		"@aztec/bb.js": "0.72.1",
-		"@noir-lang/noir_js": "1.0.0-beta.2",
-		"qrcode": "^1.5.3",
-		"zkverifyjs": "^0.12.1"
-	},
-	"scripts": {
-		"dev": "vite",
-		"build": "vite build",
-		"preview": "vite preview"
-	},
-	"devDependencies": {
-		"vite": "^5.0.0"
-	}
+  "dependencies": {
+    "@aztec/bb.js": "0.72.1",
+    "@noir-lang/noir_js": "1.0.0-beta.2",
+    "buffer": "^6.0.3",
+    "qrcode": "^1.5.3",
+    "zkverifyjs": "^0.12.1",
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "node server.js"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
 }
